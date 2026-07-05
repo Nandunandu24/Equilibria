@@ -16,7 +16,7 @@ In traditional industrial enterprises, pricing policies (revenue management) and
 **Equilibria** bridges this gap using a **Decision Science** approach. It is an interactive sandbox command center that models elastic demand curves via Ordinary Least Squares (OLS) regression, simulates stochastically delayed shipping lead times via Monte Carlo loops, and uses a collaborative Multi-Agent Consensus Council to establish profit-maximizing, risk-protected operational pricing and inventory policies.
 
 ---
-
+Deployed Link: equilibria-production-809e.up.railway.app
 ## 2. Decision Science Methodology & Data Pipeline
 
 Equilibria operates as a multi-layered mathematical processing pipeline:
