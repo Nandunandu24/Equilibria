@@ -4,7 +4,8 @@
   "description": "Dynamic Profit & Supply Chain Command Center Enterprise Portfolio App",
   "main": "server.js",
   "scripts": {
-    "start": "node server.js"
+    "start": "node server.js",
+    "postinstall": "pip install -r requirements.txt"
   },
   "dependencies": {
     "express": "^4.19.2"
