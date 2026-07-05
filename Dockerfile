@@ -14,7 +14,7 @@ WORKDIR /app
 
 # 4. Copy package manifests and install Node.js dependencies
 COPY package*.json ./
-RUN npm install --production
+RUN npm install --production --ignore-scripts
 
 # 5. Copy Python requirements
 COPY requirements.txt ./
