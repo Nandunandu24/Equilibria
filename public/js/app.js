@@ -170,7 +170,11 @@ async function runEvaluation() {
             body: JSON.stringify(payload)
         });
         
-        if (!response.ok) throw new Error("API call failed");
+        if (!response.ok) {
+            const errData = await response.json().catch(() => ({}));
+            const errMsg = errData.details || errData.error || "API call failed";
+            throw new Error(errMsg);
+        }
         
         activeData = await response.json();
         updateDashboardUI();
