@@ -1,6 +1,7 @@
 const express = require('express');
 const { spawn } = require('child_process');
 const path = require('path');
+const fs = require('fs');
 
 const app = express();
 const PORT = process.env.PORT || 3000;
@@ -10,8 +11,17 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 // POST endpoint to evaluate operational pricing and inventory safety policies
 app.post('/api/evaluate', (req, res) => {
-    // Resolve python command dynamically (Windows: 'python', Linux/Render: 'python3')
-    const pythonCmd = process.platform === 'win32' ? 'python' : 'python3';
+    // Resolve python command dynamically, preferring local virtual environment if it exists
+    let pythonCmd = process.platform === 'win32' ? 'python' : 'python3';
+    
+    const venvPath = process.platform === 'win32'
+        ? path.join(__dirname, 'venv', 'Scripts', 'python.exe')
+        : path.join(__dirname, 'venv', 'bin', 'python');
+        
+    if (fs.existsSync(venvPath)) {
+        pythonCmd = venvPath;
+    }
+    
     const pythonProcess = spawn(pythonCmd, [path.join(__dirname, 'api_bridge.py')]);
     
     let stdoutData = '';
