@@ -10,8 +10,9 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 // POST endpoint to evaluate operational pricing and inventory safety policies
 app.post('/api/evaluate', (req, res) => {
-    // Spawn python child process to run core calculations
-    const pythonProcess = spawn('python', [path.join(__dirname, 'api_bridge.py')]);
+    // Resolve python command dynamically (Windows: 'python', Linux/Render: 'python3')
+    const pythonCmd = process.platform === 'win32' ? 'python' : 'python3';
+    const pythonProcess = spawn(pythonCmd, [path.join(__dirname, 'api_bridge.py')]);
     
     let stdoutData = '';
     let stderrData = '';
