@@ -1,0 +1,532 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Dynamic Profit & Supply Chain Command Center. An Enterprise Decision Science Portfolio Framework. Fits price elasticity and runs Monte Carlo logistics simulation.">
+    <title>Dynamic Profit & Supply Chain Command Center</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@400;500;700&display=swap" rel="stylesheet">
+    <!-- Plotly CDN for rich interactive charting -->
+    <script src="https://cdn.plot.ly/plotly-2.24.1.min.js"></script>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+    <!-- 1. Header / Navigation -->
+    <header class="site-header">
+        <div class="header-container">
+            <div class="logo">
+                <span class="logo-icon">⚡</span>
+                <span class="logo-text">MU SCALE</span>
+            </div>
+            <nav class="nav-menu">
+                <a href="#hero" class="nav-link active">Home</a>
+                <a href="#portfolios" class="nav-link">Portfolios</a>
+                <a href="#how-it-works" class="nav-link">How It Works</a>
+                <a href="#dashboard" class="nav-link">Command Center</a>
+                <a href="#agents" class="nav-link">AI Agents</a>
+            </nav>
+            <div class="header-actions">
+                <div class="search-bar">
+                    <input type="text" placeholder="Search parameters...">
+                </div>
+                <button class="btn btn-primary btn-sm btn-glow" id="btn-cta-nav">Execute Sandbox</button>
+            </div>
+        </div>
+    </header>
+
+    <!-- 2. Hero Section -->
+    <section id="hero" class="hero-section">
+        <div class="hero-overlay"></div>
+        <div class="hero-content-wrapper">
+            <div class="hero-grid">
+                <div class="hero-text-content">
+                    <span class="badge">DECISION SCIENCE COMMAND PANEL</span>
+                    <h1 class="hero-title">Empowering Enterprise Operations: Dynamic Profit & Supply Chain Command Center</h1>
+                    <p class="hero-description">
+                        Fit real-time price elasticity OLS regressions, simulate logistics queues under port bottlenecks via stochastically delayed Monte Carlo paths, and orchestrate agent debate to maximize portfolio profits.
+                    </p>
+                    <div class="hero-buttons">
+                        <a href="#dashboard" class="btn btn-primary btn-lg btn-glow">Launch Command Panel</a>
+                        <a href="#how-it-works" class="btn btn-outline btn-lg">Learn the Math</a>
+                    </div>
+                </div>
+                <div class="hero-graphics">
+                    <div class="hero-card-display">
+                        <div class="hero-stat-card">
+                            <span class="stat-lbl">OPTIMAL NET YIELD</span>
+                            <span class="stat-val" id="hero-yield-val">+18.4%</span>
+                            <span class="stat-sub">Across portfolio clusters</span>
+                        </div>
+                        <div class="hero-stat-card">
+                            <span class="stat-lbl">LOGISTICS DELAY RATIO</span>
+                            <span class="stat-val" id="hero-risk-val">0.34</span>
+                            <span class="stat-sub">Stochastic variance protected</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 3. Portfolios Section (Newly Released Courses style in reference) -->
+    <section id="portfolios" class="portfolio-section">
+        <div class="section-container">
+            <div class="section-header">
+                <span class="section-badge">DECISION CHANNELS</span>
+                <h2 class="section-title">Active Strategic Portfolios</h2>
+                <p class="section-desc">Select an operational product unit below to load its 120-day transaction logs and fit OLS parameters.</p>
+            </div>
+            
+            <div class="portfolio-grid" id="product-grid">
+                <!-- Card 1: Semiconductors -->
+                <div class="portfolio-card active" data-product="semiconductors">
+                    <div class="card-image-wrap">
+                        <div class="card-icon">🎛️</div>
+                        <span class="tag tag-critical">High Penalty</span>
+                    </div>
+                    <div class="card-body">
+                        <div class="card-rating">
+                            <span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span>
+                            <span class="rating-txt">(5.0 Model Fit)</span>
+                        </div>
+                        <h3 class="card-title">Industrial Semiconductor Chips</h3>
+                        <p class="card-text">High unit margins paired with steep consumer stockout penalty rates. Sensitive to ports congestion.</p>
+                        <div class="card-footer-metrics">
+                            <span class="card-price">Base Price: $150.0</span>
+                            <button class="btn btn-primary btn-sm btn-select-product">Select Unit</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 2: Medical Kits -->
+                <div class="portfolio-card" data-product="medical_kits">
+                    <div class="card-image-wrap">
+                        <div class="card-icon">🩺</div>
+                        <span class="tag tag-nominal">Inelastic</span>
+                    </div>
+                    <div class="card-body">
+                        <div class="card-rating">
+                            <span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">☆</span>
+                            <span class="rating-txt">(4.2 Model Fit)</span>
+                        </div>
+                        <h3 class="card-title">Precision Medical Kits</h3>
+                        <p class="card-text">Stable, price-inelastic demand profile. Requires constant safety stock buffers for regulatory compliance.</p>
+                        <div class="card-footer-metrics">
+                            <span class="card-price">Base Price: $80.0</span>
+                            <button class="btn btn-outline btn-sm btn-select-product">Select Unit</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 3: EV Batteries -->
+                <div class="portfolio-card" data-product="ev_batteries">
+                    <div class="card-image-wrap">
+                        <div class="card-icon">🔋</div>
+                        <span class="tag tag-elevated">High Storage</span>
+                    </div>
+                    <div class="card-body">
+                        <div class="card-rating">
+                            <span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">☆</span>
+                            <span class="rating-txt">(4.0 Model Fit)</span>
+                        </div>
+                        <h3 class="card-title">High-Density EV Batteries</h3>
+                        <p class="card-text">High price points paired with massive holding storage costs. Demands lean logistics pipeline management.</p>
+                        <div class="card-footer-metrics">
+                            <span class="card-price">Base Price: $600.0</span>
+                            <button class="btn btn-outline btn-sm btn-select-product">Select Unit</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 4. Explanatory Flow Blocks (Why Choose SAAI style in reference) -->
+    <section id="how-it-works" class="explanation-section">
+        <div class="section-container">
+            <div class="explanation-grid">
+                <div class="explanation-visual">
+                    <div class="visual-card">
+                        <h3>Mathematical Processing Pipeline</h3>
+                        <div class="flow-chart">
+                            <div class="flow-node active" id="node-1">1. Synthesis</div>
+                            <div class="flow-arrow">➔</div>
+                            <div class="flow-node" id="node-2">2. Elasticity</div>
+                            <div class="flow-arrow">➔</div>
+                            <div class="flow-node" id="node-3">3. Simulation</div>
+                            <div class="flow-arrow">➔</div>
+                            <div class="flow-node" id="node-4">4. Agents</div>
+                        </div>
+                        <div class="visual-explanation-content">
+                            <p id="visual-desc">Click or hover on a flow block on the right to examine operational mechanics.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="explanation-content">
+                    <span class="badge">SYSTEM SYSTEMICS</span>
+                    <h2 class="section-title">Decision Science Flow</h2>
+                    
+                    <div class="flow-blocks">
+                        <!-- Flow Block 1 -->
+                        <div class="flow-block active" data-flow="1">
+                            <div class="flow-num">01</div>
+                            <div class="flow-txt">
+                                <h3>Data Ingestion & Synthesis Layer</h3>
+                                <p>Aggregates 120-day baseline transaction tables, initial stock levels, and active lead time indices.</p>
+                                <ul class="flow-points">
+                                    <li>Compiles pricing, sales volumes, promotions, and weather disruptions.</li>
+                                    <li>Injects noise parameters to reflect real-world logistics bottlenecks.</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <!-- Flow Block 2 -->
+                        <div class="flow-block" data-flow="2">
+                            <div class="flow-num">02</div>
+                            <div class="flow-txt">
+                                <h3>Predictive Analytics Core (OLS Model)</h3>
+                                <p>Fits sales logs using Ordinary Least Squares: <em>Q = α + βP + γX + ε</em>.</p>
+                                <ul class="flow-points">
+                                    <li>Calculates Price Elasticity of Demand coefficient dynamically.</li>
+                                    <li>Evaluates statistical p-values, standard errors, and model R-squared metrics.</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <!-- Flow Block 3 -->
+                        <div class="flow-block" data-flow="3">
+                            <div class="flow-num">03</div>
+                            <div class="flow-txt">
+                                <h3>Stochastic Simulation & Optimization Core</h3>
+                                <p>Evaluates pricing and inventory strategies over a 14-day window under supply chain risks.</p>
+                                <ul class="flow-points">
+                                    <li>Runs 300 Monte Carlo trials simulating lognormal queue lead times.</li>
+                                    <li>Searches decision grid (Pricing & safety stock) to maximize net profit.</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <!-- Flow Block 4 -->
+                        <div class="flow-block" data-flow="4">
+                            <div class="flow-num">04</div>
+                            <div class="flow-txt">
+                                <h3>Multi-Agent Debate & Consensus Layer</h3>
+                                <p>Orchestrates debate between persona agents to build executive-ready policy directives.</p>
+                                <ul class="flow-points">
+                                    <li>Supply Chain Risk Agent seeks to protect buffer levels.</li>
+                                    <li>Financial Controller Agent minimizes warehouse cost overheads.</li>
+                                    <li>Strategy Commander Agent resolves tradeoffs and commits policy settings.</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 5. Main Dashboard / Command Center Section -->
+    <section id="dashboard" class="dashboard-section">
+        <div class="section-container">
+            <div class="section-header">
+                <span class="section-badge">DECISION SANDBOX</span>
+                <h2 class="section-title">Operational Command Panel</h2>
+                <p class="section-desc">Adjust logistics parameters and sandbox pricing to evaluate expected profits and trigger AI Agent debates.</p>
+            </div>
+            
+            <div class="dashboard-layout">
+                <!-- Dashboard Sidebar Controls -->
+                <div class="dashboard-controls">
+                    <div class="control-group">
+                        <h3>📦 ACTIVE PORTFOLIO</h3>
+                        <div class="control-value-label" id="lbl-active-product">Industrial Semiconductor Chips</div>
+                    </div>
+                    
+                    <div class="control-group">
+                        <label class="checkbox-container">
+                            <input type="checkbox" id="chk-use-realtime" checked>
+                            <span class="chk-label">⚡ Enable Live Telemetry</span>
+                        </label>
+                        <div id="telemetry-status" class="telemetry-status-active">CONNECTING TELEMETRY...</div>
+                    </div>
+                    
+                    <div class="control-group">
+                        <h3>🚢 LOGISTICS RISK CONTROLS</h3>
+                        <label class="slider-label">
+                            <span>Port Congestion Index</span>
+                            <span id="val-port-congestion">0.40</span>
+                        </label>
+                        <input type="range" id="slider-port-congestion" min="0" max="1" step="0.05" value="0.40" class="input-slider">
+                        
+                        <label class="slider-label">
+                            <span>Weather Delay Index</span>
+                            <span id="val-weather-severity">0.20</span>
+                        </label>
+                        <input type="range" id="slider-weather-severity" min="0" max="1" step="0.05" value="0.20" class="input-slider">
+                    </div>
+
+                    <div class="control-group">
+                        <h3>🛠️ SANDBOX POLICY CONTROLS</h3>
+                        <label class="slider-label">
+                            <span>Sandbox Unit Price ($)</span>
+                            <span id="val-price">$150</span>
+                        </label>
+                        <input type="range" id="slider-price" min="50" max="200" step="1" value="150" class="input-slider">
+                        
+                        <label class="slider-label">
+                            <span>Safety Stock Buffer (Days)</span>
+                            <span id="val-safety-stock">4 days</span>
+                        </label>
+                        <input type="range" id="slider-safety-stock" min="0" max="12" step="1" value="4" class="input-slider">
+                    </div>
+
+                    <div class="control-group">
+                        <h3>💰 COST MULTIPLIERS</h3>
+                        <label class="slider-label">
+                            <span>Storage Fee Mult</span>
+                            <span id="val-storage-mult">1.0x</span>
+                        </label>
+                        <input type="range" id="slider-storage-mult" min="0.5" max="3" step="0.1" value="1.0" class="input-slider">
+                        
+                        <label class="slider-label">
+                            <span>Stockout Penalty Mult</span>
+                            <span id="val-stockout-mult">1.0x</span>
+                        </label>
+                        <input type="range" id="slider-stockout-mult" min="0.5" max="3" step="0.1" value="1.0" class="input-slider">
+                    </div>
+                    
+                    <button class="btn btn-primary btn-block btn-glow" id="btn-run-simulation">⚡ Execute Policy Simulation</button>
+                </div>
+                
+                <!-- Dashboard Workspace Output -->
+                <div class="dashboard-output">
+                    <!-- Stat Metric Cards -->
+                    <div class="metrics-grid">
+                        <div class="glass-metric">
+                            <span class="metric-lbl">Expected Net Profit</span>
+                            <span class="metric-val" id="metric-profit">$0.00</span>
+                            <span class="metric-change" id="metric-profit-delta">--</span>
+                        </div>
+                        <div class="glass-metric">
+                            <span class="metric-lbl">Stockout Exposure</span>
+                            <span class="metric-val" id="metric-stockout">0.0%</span>
+                            <span class="metric-change" id="metric-stockout-delta">--</span>
+                        </div>
+                        <div class="glass-metric">
+                            <span class="metric-lbl">Expected Holding Cost</span>
+                            <span class="metric-val" id="metric-holding">$0.00</span>
+                            <span class="metric-change">Warehouse overhead</span>
+                        </div>
+                        <div class="glass-metric">
+                            <span class="metric-lbl">Value at Risk (5% VaR)</span>
+                            <span class="metric-val" id="metric-var">$0.00</span>
+                            <span class="metric-change">Disruption floor</span>
+                        </div>
+                    </div>
+                    
+                    <!-- Dashboard Tabs -->
+                    <div class="dashboard-tabs">
+                        <button class="tab-btn active" data-tab="tab-debate">Consensus Debate</button>
+                        <button class="tab-btn" data-tab="tab-elasticity">Demand Elasticity</button>
+                        <button class="tab-btn" data-tab="tab-stochastic">Stochastic Trajectories</button>
+                        <button class="tab-btn" data-tab="tab-comparison">Policy Sandbox Comparison</button>
+                    </div>
+                    
+                    <div class="tab-content-container">
+                        <!-- Tab: Consensus Debate -->
+                        <div class="tab-content active" id="tab-debate">
+                            <div class="consensus-intro">
+                                <h3>Multi-Agent Decision Alignment</h3>
+                                <p>Simulates conflict resolution and directive construction between the Finance, Supply Chain, and Strategy Commanders.</p>
+                            </div>
+                            <div class="debate-board" id="debate-board-content">
+                                <div class="loading-spinner">Select a product and execute a policy to start the simulation.</div>
+                            </div>
+                        </div>
+                        
+                        <!-- Tab: Demand Elasticity -->
+                        <div class="tab-content" id="tab-elasticity">
+                            <div class="elasticity-layout">
+                                <div class="chart-container-large" id="chart-elasticity">
+                                    <div class="loading-spinner">No data loaded.</div>
+                                </div>
+                                <div class="elasticity-metrics">
+                                    <div class="metrics-table-col">
+                                        <h3>Ordinary Least Squares Coefficients</h3>
+                                        <table class="diagnostic-table">
+                                            <thead>
+                                                <tr>
+                                                    <th>Regression Variable</th>
+                                                    <th>Coefficient Value</th>
+                                                    <th>Statistical Significance (P-Value)</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody id="ols-tbody">
+                                                <tr><td colspan="3" style="text-align:center;">No model loaded</td></tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                    <div class="metrics-summary-col">
+                                        <h3>OLS Model Diagnostics</h3>
+                                        <div class="highlight-metric-box">
+                                            <span class="highlight-lbl">Goodness of Fit (R-Squared R²)</span>
+                                            <span class="highlight-val" id="val-r2">0.0000</span>
+                                        </div>
+                                        <div class="highlight-metric-box">
+                                            <span class="highlight-lbl">Fitted Elasticity Coefficient (E)</span>
+                                            <span class="highlight-val" id="val-ped-coef">0.000</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Tab: Stochastic Trajectories -->
+                        <div class="tab-content" id="tab-stochastic">
+                            <div class="stochastic-layout">
+                                <div class="chart-box">
+                                    <h4>Physical Inventory Paths over 14 Days</h4>
+                                    <div class="chart-container-large" id="chart-inventory-paths">
+                                        <div class="loading-spinner">No data loaded.</div>
+                                    </div>
+                                </div>
+                                <div class="chart-box">
+                                    <h4>Monte Carlo Expected Profit Distribution</h4>
+                                    <div class="chart-container-large" id="chart-profit-dist">
+                                        <div class="loading-spinner">No data loaded.</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Tab: Policy Comparison -->
+                        <div class="tab-content" id="tab-comparison">
+                            <h3>Operational Strategy Evaluation</h3>
+                            <div class="comparison-table-wrapper">
+                                <table class="comparison-table">
+                                    <thead>
+                                        <tr>
+                                            <th>Key Performance Metric</th>
+                                            <th>Manual Sandbox Policy</th>
+                                            <th>AI-Optimized Policy</th>
+                                            <th>Variance Delta</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="comparison-tbody">
+                                        <tr><td colspan="4" style="text-align:center;">Execute a policy simulation to populate comparative matrix</td></tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 6. AI Agent Profiles Section -->
+    <section id="agents" class="agents-section">
+        <div class="section-container">
+            <div class="section-header">
+                <span class="section-badge">AI COUNCIL</span>
+                <h2 class="section-title">Meet Our AI Decision Agents</h2>
+                <p class="section-desc">Each agent represents a distinct business interest, debating in parallel to achieve balanced optimization directives.</p>
+            </div>
+            
+            <div class="agents-grid">
+                <!-- Agent 1: Supply Chain Risk -->
+                <div class="agent-profile-card">
+                    <div class="agent-header">
+                        <div class="agent-avatar avatar-sc">📦</div>
+                        <div class="agent-meta">
+                            <h3>Supply Chain Buffer Agent</h3>
+                            <span class="agent-title">Logistics Risk Specialist</span>
+                        </div>
+                    </div>
+                    <p class="agent-bio">
+                        Fights to protect warehouse stocks, prevents customer out-of-stock fees, and monitors port bottlenecks. Prioritizes inventory safety parameters.
+                    </p>
+                    <button class="btn btn-secondary btn-block btn-sm" onclick="triggerAgentFocus('sc')">Examine Logistics Focus</button>
+                </div>
+
+                <!-- Agent 2: Financial Controller -->
+                <div class="agent-profile-card">
+                    <div class="agent-header">
+                        <div class="agent-avatar avatar-fc">📊</div>
+                        <div class="agent-meta">
+                            <h3>Financial Controller Agent</h3>
+                            <span class="agent-title">Capital Optimizer</span>
+                        </div>
+                    </div>
+                    <p class="agent-bio">
+                        Minimizes warehouse unit holding costs, prevents margin leakage, and maximizes cash liquidity. Prioritizes cost compression.
+                    </p>
+                    <button class="btn btn-secondary btn-block btn-sm" onclick="triggerAgentFocus('fc')">Examine Finance Focus</button>
+                </div>
+
+                <!-- Agent 3: Strategy Commander -->
+                <div class="agent-profile-card">
+                    <div class="agent-header">
+                        <div class="agent-avatar avatar-cmd">🎖️</div>
+                        <div class="agent-meta">
+                            <h3>Strategy Commander Agent</h3>
+                            <span class="agent-title">Consensus Architect</span>
+                        </div>
+                    </div>
+                    <p class="agent-bio">
+                        Mediates debates, evaluates elasticity vs storage overheads, and converts raw numbers into actionable directives. Summarizes final policy orders.
+                    </p>
+                    <button class="btn btn-secondary btn-block btn-sm" onclick="triggerAgentFocus('cmd')">Examine Consensus Logic</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 7. Footer -->
+    <footer class="site-footer">
+        <div class="section-container footer-container">
+            <div class="footer-brand">
+                <div class="logo">
+                    <span class="logo-icon">⚡</span>
+                    <span class="logo-text">MU SCALE</span>
+                </div>
+                <p>Advanced Decisions Science & Revenue Management command center portfolio. Fusing elastic demand regressions and stochastic Monte Carlo operations.</p>
+            </div>
+            
+            <div class="footer-links-grid">
+                <div class="footer-col">
+                    <h4>Platform</h4>
+                    <a href="#hero">Home</a>
+                    <a href="#portfolios">Portfolios</a>
+                    <a href="#how-it-works">How It Works</a>
+                    <a href="#dashboard">Dashboard</a>
+                </div>
+                <div class="footer-col">
+                    <h4>Mathematical cores</h4>
+                    <a href="#">OLS Regression</a>
+                    <a href="#">Monte Carlo</a>
+                    <a href="#">Multi-Agent</a>
+                </div>
+                <div class="footer-col">
+                    <h4>Company</h4>
+                    <a href="#">Mu Sigma recruiting</a>
+                    <a href="#">Evaluations</a>
+                    <a href="#">Author Details</a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <div class="section-container">
+                <p>&copy; 2026 Mu Sigma Evaluation Portfolio. Confidential release.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/app.js"></script>
+</body>
+</html>

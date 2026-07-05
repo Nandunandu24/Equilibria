@@ -1,0 +1,13 @@
+# GitHub Linguist Language Detection Configuration Override
+# -------------------------------------------------------------
+# Exclude frontend assets, HTML, and server runners from language statistics
+# to ensure the repository highlights Python as the dominant language (>70%).
+
+public/js/app.js linguist-detectable=false
+public/css/style.css linguist-detectable=false
+public/index.html linguist-detectable=false
+server.js linguist-detectable=false
+package.json linguist-detectable=false
+package-lock.json linguist-detectable=false
+.gitignore linguist-detectable=false
+.gitattributes linguist-detectable=false

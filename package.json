@@ -1,0 +1,13 @@
+{
+  "name": "supplychain-command-center",
+  "version": "1.0.0",
+  "description": "Dynamic Profit & Supply Chain Command Center Enterprise Portfolio App",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "express": "^4.19.2"
+  },
+  "private": true
+}
